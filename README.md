@@ -7,7 +7,7 @@ Docs in the making.
 Jumpstart -- how to run the program:
 1) Clone repository
 2) ```$ pip install -r requirements.txt```<br>
-3) ```$ python astviz.py```
+3) ```$ python astree.py```
 
 Input modules, methods, declarations, expressions, etc...<br>
 
