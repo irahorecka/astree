@@ -1,18 +1,19 @@
-# astviz
+# astree
 ### Visualize abstract syntax trees of methods, declarations, expressions, etc.
 
-Docs in the making...
+Docs in the making.
 <hr>
   
-JUMPSTART - how to run the program:
+Jumpstart -- how to run the program:
+1) Clone repository
+2) ```$ pip install -r requirements.txt```<br>
+3) ```$ python astviz.py```
 
-```$ pip install -r requirements.txt```<br>
-```$ python ast_vis.py```
-
-Input expression, method name, declarations, etc...<br>
-NOTE: Still a work in progress... bugs may be found.
+Input modules, methods, expressions, declarations, etc...<br>
 
 <p align = 'center'>
 <img src=https://i.imgur.com/41FcAwg.png alt="AST visualize requests.get"
     width=800><br>
 </p>
+
+Note: still a work in progress -- bugs may be found.
