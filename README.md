@@ -9,7 +9,7 @@ Jumpstart -- how to run the program:
 2) ```$ pip install -r requirements.txt```<br>
 3) ```$ python astviz.py```
 
-Input modules, methods, expressions, declarations, etc...<br>
+Input modules, methods, declarations, expressions, etc...<br>
 
 <p align = 'center'>
 <img src=https://i.imgur.com/41FcAwg.png alt="AST visualize requests.get"

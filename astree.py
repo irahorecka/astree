@@ -134,7 +134,7 @@ def main():
     Save file as PNG."""
     graph = pydot.Dot(graph_type='digraph', strict=True, constraint=True,
                       concentrate=True, splines='polyline')
-    user_input = input('input a method name, expression, etc.: ')
+    user_input = input('Input a method name, expression, etc.: ')
     try:
         if '.' in user_input:
             mod, met = user_input.split('.')  # handle modules and methods
