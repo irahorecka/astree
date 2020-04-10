@@ -6,6 +6,7 @@ import functools
 import importlib
 import json
 import random
+import re
 from _ast import AST
 import pydot_ng as pydot
 from IPython.display import Image, display
@@ -62,7 +63,7 @@ def key_append(value, dictionary):
 
 
 def _grapher(graph, dictionary, _node_from='', hash_node='__init__'):
-    if dictionary:
+    if isinstance(dictionary, dict):
         for key, value in dictionary.items():
             if not _node_from:
                 _node_from = value
@@ -80,19 +81,13 @@ def _grapher(graph, dictionary, _node_from='', hash_node='__init__'):
 
 def draw_filter(method):
     def wrapper(*args, **kwargs):
-        parent_name = args[0]
-        child_name = args[1]
-        illegal_char = (',', '\\', '/')
-        if child_name[-1] in illegal_char or parent_name[-1] in illegal_char:
+        parent_name, child_name = tuple('_node' if node == 'node' else node for node in args)
+        illegal_char = re.compile(r'[,\\/]$')
+        illegal_char.sub('*', child_name)
+        if not child_name:
             return
         if len(child_name) > 2500:
             child_name = '~~~DOCS: too long to fit on graph~~~'
-        if parent_name == 'node':
-            parent_name = '_node'
-        if child_name == 'node':
-            child_name = '_node'
-        if not child_name:
-            return
         args = (parent_name, child_name)
 
         return method(*args, **kwargs)
