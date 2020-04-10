@@ -1,4 +1,4 @@
-"""A module to visualize Python AST"""
+"""A module to visualize Python AST."""
 
 import ast
 import inspect
@@ -129,24 +129,31 @@ def view_tree(pdot):
     display(tree)
 
 
+def parse_input(_input):
+    """Parse user input and return an AST-compatible object."""
+    try:
+        if '.' in _input:
+            mod, met = _input.split('.')  # handle modules and methods
+            module = importlib.import_module(mod)
+            method = getattr(module, met)
+        else:
+            module = importlib.import_module(_input)  # handle modules
+            method = module
+    except (ModuleNotFoundError):
+        method = _input  # handle dec, exp
+
+    return method
+
+
 def main():
-    """Parse user input and draw an AST.\n
+    """Take user input and draw an AST.\n
     Save file as PNG."""
     graph = pydot.Dot(graph_type='digraph', strict=True, constraint=True,
                       concentrate=True, splines='polyline')
     user_input = input('Input a method name, expression, etc.: ')
-    try:
-        if '.' in user_input:
-            mod, met = user_input.split('.')  # handle modules and methods
-            module = importlib.import_module(mod)
-            method = getattr(module, met)
-        else:
-            module = importlib.import_module(user_input)  # handle modules
-            method = module
-    except (ModuleNotFoundError):
-        method = user_input  # handle dec, exp
+    parsed_input = parse_input(user_input)
 
-    grapher(graph, json_ast(method))
+    grapher(graph, json_ast(parsed_input))
     # view_tree(graph)
     if graph.write_png('astree.png'):
         print("Graph made successfully")
