@@ -10,9 +10,9 @@ JUMPSTART - how to run the program:
 ```$ python ast_vis.py```
 
 Input expression, method name, declarations, etc...<br>
-NOTE: Still a working progress... bugs may be found.
+NOTE: Still a work in progress... bugs may be found.
 
 <p align = 'center'>
 <img src=https://i.imgur.com/41FcAwg.png alt="AST visualize requests.get"
-    width=600><br>
+    width=800><br>
 </p>
