@@ -1,5 +1,5 @@
 # astviz
-### Visualize abstract tree syntax of functions or declarations
+### Visualize abstract syntax trees of methods, declarations, expressions, etc.
 
 Docs in the making...
 <hr>
