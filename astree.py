@@ -2,7 +2,6 @@
 
 import ast
 import inspect
-import functools
 import importlib
 import json
 import random
@@ -16,7 +15,6 @@ from IPython.display import Image, display
 
 def ast_parse(method):
     """Decorator to parse user input to JSON-AST object."""
-    @functools.wraps(method)
     def wrapper(*args, **kwargs):
         if isinstance(args[0], str):
             ast_obj = ast.parse(args[0])  # i.e. a dec or exp
@@ -150,7 +148,7 @@ def main():
     Save file as PNG."""
     graph = pydot.Dot(graph_type='digraph', strict=True, constraint=True,
                       concentrate=True, splines='polyline')
-    user_input = input('Input a method name, expression, etc.: ')
+    user_input = input('Input a method name, expression, etc.:\n')
     parsed_input = parse_input(user_input)
 
     grapher(graph, json_ast(parsed_input))
