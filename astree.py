@@ -4,11 +4,11 @@ import ast
 import inspect
 import importlib
 import json
-import random
 import re
-from _ast import AST
+import uuid
 import pydot_ng as pydot
 from IPython.display import Image, display
+from _ast import AST
 
 
 # ~~~~~~~~~~~~~~~~~~ PARSING AST OBJ TO JSON ~~~~~~~~~~~~~~~~~~
@@ -110,7 +110,7 @@ def draw(parent_name, child_name, graph, parent_hash):
     """Draw parent and child nodes. Create and return new hash\n
     key declared to a child node."""
     parent_node = pydot.Node(parent_hash, label=parent_name, shape='box')
-    child_hash = str(random.randint(1, 10e9))  # create hash key
+    child_hash = str(uuid.uuid4())  # create hash key
     child_node = pydot.Node(child_hash, label=child_name, shape='box')
 
     graph.add_node(parent_node)
@@ -137,7 +137,7 @@ def parse_input(_input):
         else:
             module = importlib.import_module(_input)  # handle modules
             method = module
-    except (ModuleNotFoundError):
+    except ModuleNotFoundError:
         method = _input  # handle dec, exp
 
     return method
