@@ -10,7 +10,7 @@ pickleshare==0.7.5
 prompt-toolkit==3.0.5
 ptyprocess==0.6.0
 pydot-ng==2.0.0
-Pygments==2.6.1
+Pygments==2.7.4
 pyparsing==2.4.7
 six==1.14.0
 traitlets==4.3.3
