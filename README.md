@@ -1,5 +1,5 @@
 # astree
-### Visualize abstract syntax trees of methods, declarations, expressions, etc.
+### Visualize abstract syntax trees of methods, declarations, expressions, and more
 
 ```astree.py``` combines the Python <a href=https://docs.python.org/3.8/library/ast.html>```ast```</a> module with
 <a href=https://github.com/pydot/pydot-ng>```pydot_ng```</a> to draw abstract syntax trees specified in DOT language scripts.
